@@ -37,7 +37,29 @@ git clone https://github.com/automata02/CE
 - Modern SwiftUI interface
 - Native iOS map integration
 
-## APIs Used
+## Additional Information
 
-- Countries Data: REST Countries API
-- Flag Images: Flags API
+### APIs
+- All data is fetched from public APIs
+- No API key required
+- Rate limiting may apply
+
+### Data Privacy
+- No personal data is collected
+- Favorites are stored locally only - UserDefaults
+- No network caching implemented
+
+### Accessibility
+- Supports Dynamic Type
+- VoiceOver compatible
+- Follows iOS Human Interface Guidelines
+
+### Device Support
+- Optimized for iPhone
+- Supports both portrait and landscape orientations
+- Supports iOS system dark mode
+
+### Known Limitations
+- No offline support
+- Some country data might be incomplete depending on API response
+- Map view requires internet connection
