@@ -25,6 +25,7 @@
 		CDF949CC2D64671800B00EEF /* Exceptions for "CE" folder in "CETests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Application/config.plist,
 				Application/Strings.swift,
 				Data/Country.swift,
 				Data/CountryListItem.swift,

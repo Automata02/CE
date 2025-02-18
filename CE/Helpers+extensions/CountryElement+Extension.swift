@@ -40,14 +40,9 @@ extension CountryElement: Hashable {
 }
 
 extension CountryElement {
-    enum FlagStyle: String {
-        case flat = "flat"
-        case shiny = "shiny"
-    }
-    
-    func getFlagURL(style: FlagStyle = .flat, size: Int = 64) -> URL? {
+    func getFlagURL() -> URL? {
         guard let countryCode = cca2 else { return nil }
-        let urlString = "https://flagsapi.com/\(countryCode)/\(style.rawValue)/\(size).png"
+        let urlString = "\(Endpoint.imgURL)\(countryCode)/flat/64.png"
         return URL(string: urlString)
     }
 }

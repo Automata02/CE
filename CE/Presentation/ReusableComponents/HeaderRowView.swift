@@ -14,7 +14,7 @@ struct HeaderRowView: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: country.getFlagURL(size: 64)) { phase in
+            AsyncImage(url: country.getFlagURL()) { phase in
                 switch phase {
                 case .empty:
                     Color.secondary

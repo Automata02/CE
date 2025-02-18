@@ -35,6 +35,7 @@ struct CountryRowView<ViewModel: ViewModelProtocol>: View {
                 if showFavoriteIndicator && isFavorite {
                     Image(systemName: "star.fill")
                         .foregroundColor(.gray.opacity(0.3))
+                        .padding(.trailing, 5)
                 }
             }
         }

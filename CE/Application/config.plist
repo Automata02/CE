@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IMG_URL</key>
+	<string>https://flagsapi.com/</string>
+	<key>BASE_URL</key>
+	<string>https://restcountries.com/v3.1/all</string>
+</dict>
+</plist>
