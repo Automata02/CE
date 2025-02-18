@@ -2,6 +2,25 @@
 
 A Swift-based iOS application that provides detailed information about countries worldwide, utilizing the REST Countries API.
 
+## Requirements
+
+- iOS 18.0+
+- Xcode 16.0+
+- Swift 6+
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/automata02/CE
+
+
+## Build and Run
+
+1. Open `CE.xcodeproj` in Xcode
+2. Select your target device/simulator
+3. Press Run (⌘R) or click the Play button
+
 ## Features
 
 - Search countries by name and native translations
@@ -17,14 +36,7 @@ A Swift-based iOS application that provides detailed information about countries
 - Modern SwiftUI interface
 - Native iOS map integration
 
-## Requirements
+## APIs Used
 
-- iOS 18.0+
-- Xcode 16.0+
-- Swift 6+
-
-## Installation
-
-1. Clone the repository:
-```bash
-git clone --
+- Countries Data: REST Countries API
+- Flag Images: Flags API
