@@ -14,35 +14,52 @@
 			remoteGlobalIDString = CDF949962D64647500B00EEF;
 			remoteInfo = CE;
 		};
-		CDF949B22D64647700B00EEF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CDF9498F2D64647500B00EEF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CDF949962D64647500B00EEF;
-			remoteInfo = CE;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CDF949972D64647500B00EEF /* CE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF949A72D64647700B00EEF /* CETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDF949B12D64647700B00EEF /* CEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CDF949CC2D64671800B00EEF /* Exceptions for "CE" folder in "CETests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Application/Strings.swift,
+				Data/Country.swift,
+				Data/CountryListItem.swift,
+				Data/Endpoint.swift,
+				"Helpers+extensions/CountryElement+Extension.swift",
+				"Helpers+extensions/Int+Extension.swift",
+				Infrastructure/Error.swift,
+				Infrastructure/SessionManager.swift,
+				Presentation/CountryDetailView.swift,
+				Presentation/LanguageDetailView.swift,
+				Presentation/LanguageNavigator.swift,
+				Presentation/ListView.swift,
+				Presentation/ReusableComponents/CountryMapView.swift,
+				Presentation/ReusableComponents/CountryRowView.swift,
+				Presentation/ReusableComponents/HeaderRowView.swift,
+				Presentation/ReusableComponents/InfoRowView.swift,
+				Presentation/ReusableComponents/SearchBar.swift,
+				Presentation/ViewModel.swift,
+			);
+			target = CDF949A62D64647700B00EEF /* CETests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CDF949992D64647500B00EEF /* CE */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CDF949CC2D64671800B00EEF /* Exceptions for "CE" folder in "CETests" target */,
+			);
 			path = CE;
 			sourceTree = "<group>";
 		};
 		CDF949AA2D64647700B00EEF /* CETests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CETests;
-			sourceTree = "<group>";
-		};
-		CDF949B42D64647700B00EEF /* CEUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CEUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,13 +79,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDF949AE2D64647700B00EEF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +87,6 @@
 			children = (
 				CDF949992D64647500B00EEF /* CE */,
 				CDF949AA2D64647700B00EEF /* CETests */,
-				CDF949B42D64647700B00EEF /* CEUITests */,
 				CDF949982D64647500B00EEF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +96,6 @@
 			children = (
 				CDF949972D64647500B00EEF /* CE.app */,
 				CDF949A72D64647700B00EEF /* CETests.xctest */,
-				CDF949B12D64647700B00EEF /* CEUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,29 +148,6 @@
 			productReference = CDF949A72D64647700B00EEF /* CETests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CDF949B02D64647700B00EEF /* CEUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CDF949C12D64647700B00EEF /* Build configuration list for PBXNativeTarget "CEUITests" */;
-			buildPhases = (
-				CDF949AD2D64647700B00EEF /* Sources */,
-				CDF949AE2D64647700B00EEF /* Frameworks */,
-				CDF949AF2D64647700B00EEF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CDF949B32D64647700B00EEF /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				CDF949B42D64647700B00EEF /* CEUITests */,
-			);
-			name = CEUITests;
-			packageProductDependencies = (
-			);
-			productName = CEUITests;
-			productReference = CDF949B12D64647700B00EEF /* CEUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,10 +162,6 @@
 						CreatedOnToolsVersion = 16.2;
 					};
 					CDF949A62D64647700B00EEF = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = CDF949962D64647500B00EEF;
-					};
-					CDF949B02D64647700B00EEF = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = CDF949962D64647500B00EEF;
 					};
@@ -202,7 +183,6 @@
 			targets = (
 				CDF949962D64647500B00EEF /* CE */,
 				CDF949A62D64647700B00EEF /* CETests */,
-				CDF949B02D64647700B00EEF /* CEUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +196,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CDF949A52D64647700B00EEF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CDF949AF2D64647700B00EEF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,13 +219,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDF949AD2D64647700B00EEF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -260,11 +226,6 @@
 			isa = PBXTargetDependency;
 			target = CDF949962D64647500B00EEF /* CE */;
 			targetProxy = CDF949A82D64647700B00EEF /* PBXContainerItemProxy */;
-		};
-		CDF949B32D64647700B00EEF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CDF949962D64647500B00EEF /* CE */;
-			targetProxy = CDF949B22D64647700B00EEF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -404,6 +365,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,6 +395,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,40 +447,6 @@
 			};
 			name = Release;
 		};
-		CDF949C22D64647700B00EEF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SH7598WJ8A;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bobbert.CEUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CE;
-			};
-			name = Debug;
-		};
-		CDF949C32D64647700B00EEF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SH7598WJ8A;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bobbert.CEUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CE;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -544,15 +473,6 @@
 			buildConfigurations = (
 				CDF949BF2D64647700B00EEF /* Debug */,
 				CDF949C02D64647700B00EEF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CDF949C12D64647700B00EEF /* Build configuration list for PBXNativeTarget "CEUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CDF949C22D64647700B00EEF /* Debug */,
-				CDF949C32D64647700B00EEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
