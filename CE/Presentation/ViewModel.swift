@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol ViewModelProtocol: ObservableObject {
     var countries: [CountryElement] { get set }
@@ -26,20 +27,18 @@ class ViewModel: ViewModelProtocol {
     @Published var error: NetworkError?
     @Published var searchText = ""
     @Published var isLoading = false
+    @Published private(set) var filteredCountriesWithStatus: [CountryListItem] = []
     
     init() {
         if let savedFavorites = UserDefaults.standard.array(forKey: "favoriteCountries") as? [String] {
             favorites = Set(savedFavorites)
         }
+        
+        setupSearchSubscription()
     }
     
-    var filteredCountriesWithStatus: [CountryListItem] {
-        filteredCountries.map { country in
-            CountryListItem(
-                country: country,
-                isFavorite: isFavorite(country)
-            )
-        }
+    deinit {
+        searchCancellable?.cancel()
     }
     
     var filteredCountries: [CountryElement] {
@@ -89,13 +88,16 @@ class ViewModel: ViewModelProtocol {
     func fetchCountries() {
         isLoading = true
         Task {
-            await sessionManager.fetchDecodableData(from: Endpoint.baseURL) { (result: Result<[CountryElement], Error>) in
-                self.isLoading = false
-                switch result {
-                case .success(let countries):
+            do {
+                let countries: [CountryElement] = try await sessionManager.fetchDecodableData(from: Endpoint.baseURL)
+                await MainActor.run {
+                    self.isLoading = false
                     self.countries = countries.sorted { ($0.name?.common ?? "") < ($1.name?.common ?? "") }
                     self.calculatePopulationRankings()
-                case .failure(let error):
+                }
+            } catch {
+                await MainActor.run {
+                    self.isLoading = false
                     self.error = error as? NetworkError
                 }
             }
@@ -123,6 +125,45 @@ class ViewModel: ViewModelProtocol {
     //MARK: Private
     private let sessionManager = SessionManager.shared
     private var populationRankings: [String: Int] = [:]
+    private var searchCancellable: AnyCancellable?
+    
+    private func setupSearchSubscription() {
+        searchCancellable = Publishers.CombineLatest($searchText, $countries)
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .map { [weak self] searchText, countries in
+                guard let self = self else { return [] }
+                
+                if searchText.isEmpty {
+                    return countries.map { CountryListItem(
+                        country: $0,
+                        isFavorite: self.isFavorite($0)
+                    )}
+                }
+                
+                return countries
+                    .filter { country in
+                        let searchTerms = searchText.lowercased()
+                        
+                        if let commonName = country.name?.common?.lowercased(),
+                           commonName.contains(searchTerms) {
+                            return true
+                        }
+                        
+                        if let translations = country.translations {
+                            return translations.values.contains { translation in
+                                translation.common?.lowercased().contains(searchTerms) == true ||
+                                translation.official?.lowercased().contains(searchTerms) == true
+                            }
+                        }
+                        return false
+                    }
+                    .map { CountryListItem(
+                        country: $0,
+                        isFavorite: self.isFavorite($0)
+                    )}
+            }
+            .assign(to: \.filteredCountriesWithStatus, on: self)
+    }
     
     private func calculatePopulationRankings() {
         let sortedCountries = countries.sorted {

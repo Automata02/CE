@@ -21,17 +21,8 @@ class SessionManager {
         self.session = session
     }
     
-    func fetchDecodableData<T: Codable>(from urlString: String, completion: @escaping (Result<T, Error>) -> Void) async {
-        do {
-            let data: T = try await getData(from: urlString)
-            DispatchQueue.main.async {
-                completion(.success(data))
-            }
-        } catch {
-            DispatchQueue.main.async {
-                completion(.failure(error as? NetworkError ?? .unknownError))
-            }
-        }
+    func fetchDecodableData<T: Codable>(from urlString: String) async throws -> T {
+        return try await getData(from: urlString)
     }
     
     func getData<T: Decodable>(from urlString: String) async throws -> T {
@@ -51,14 +42,12 @@ class SessionManager {
             decoder.dateDecodingStrategy = .iso8601
             
             do {
-                let decodedData = try decoder.decode(T.self, from: data)
-                return decodedData
+                return try decoder.decode(T.self, from: data)
             } catch let decodingError as DecodingError {
                 throw NetworkError.decodingError(decodingError)
             } catch {
                 throw NetworkError.generalNetworkError(error)
             }
-            
         } catch {
             throw NetworkError.generalNetworkError(error)
         }
